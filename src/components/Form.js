@@ -1,16 +1,36 @@
 import React, { useState } from 'react'
+import Error from './Error'
 
 const Form = () => {
-  return (
-    <form>
-      <h2>Add your expenses</h2>
+  const [name, saveName] = useState('')
+  const [quantity, saveQuantity] = useState(0)
+  const [error, saveError] = useState(false)
 
+  const addExpense = e => {
+    e.preventDefault()
+
+    // Validate
+    if (quantity < 1 || isNaN(quantity) || name.trim() === '') {
+      saveError(true)
+    }
+
+    saveError(false)
+  }
+
+  return (
+    <form onSubmit={addExpense}>
+      <h2>Add your expenses</h2>
+      {error ? (
+        <Error message="The fields are mandatory or incorrect quote" />
+      ) : null}
       <div className="campo">
         <label>Name Expense</label>
         <input
           type="text"
           className="u-full-width"
           placeholder="example: Cinema"
+          value={name}
+          onChange={e => saveName(e.target.value)}
         />
       </div>
 
@@ -20,6 +40,8 @@ const Form = () => {
           type="number"
           className="u-full-width"
           placeholder="example: 400"
+          value={quantity}
+          onChange={e => saveQuantity(parseInt(e.target.value, 10))}
         />
       </div>
 

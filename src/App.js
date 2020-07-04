@@ -25,7 +25,7 @@ function App() {
 
     // Reset to false
     saveCreateExpense(false)
-  }, [expense])
+  }, [expense, createExpense, expenses, remaining])
 
   return (
     <div className="container">

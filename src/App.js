@@ -17,14 +17,14 @@ function App() {
     if (createExpense) {
       // Add new budget
       saveExpenses([...expenses, expense])
+
+      // Subtract from budget
+      const remainingBudget = remaining - expense.quantity
+      saveRemaining(remainingBudget)
+
+      // Reset to false
+      saveCreateExpense(false)
     }
-
-    // Subtract from budget
-    const remainingBudget = remaining - expense.quantity
-    saveRemaining(remainingBudget)
-
-    // Reset to false
-    saveCreateExpense(false)
   }, [expense, createExpense, expenses, remaining])
 
   return (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Error from './Error'
+import shortid from 'shortid'
 
 const Form = () => {
   const [name, saveName] = useState('')
@@ -12,9 +13,11 @@ const Form = () => {
     // Validate
     if (quantity < 1 || isNaN(quantity) || name.trim() === '') {
       saveError(true)
+      return
     }
-
     saveError(false)
+
+    const expense = { name, quantity, id: shortid.generate() }
   }
 
   return (

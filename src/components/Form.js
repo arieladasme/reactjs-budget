@@ -30,23 +30,24 @@ const Form = ({ saveExpense, saveCreateExpense }) => {
 
   return (
     <form onSubmit={addExpense}>
-      <h2>Add your expenses</h2>
+      {/* <h2>Add your expenses</h2> */}
+      <h2>Ingresa tus gastos</h2>
       {error ? (
         <Error message="The fields are mandatory or incorrect quote" />
       ) : null}
       <div className="campo">
-        <label>Name Expense</label>
+        <label>Descripción</label>
         <input
           type="text"
           className="u-full-width"
-          placeholder="example: Cinema"
+          placeholder="ejemplo: Cerveza"
           value={name}
           onChange={e => saveName(e.target.value)}
         />
       </div>
 
       <div className="campo">
-        <label>Amount Expense</label>
+        <label>Valor gastado</label>
         <input
           type="number"
           className="u-full-width"
@@ -59,7 +60,7 @@ const Form = ({ saveExpense, saveCreateExpense }) => {
       <input
         type="submit"
         className="button-primary u-full-width"
-        value="Add expense"
+        value="Ingresar gasto"
       />
     </form>
   )

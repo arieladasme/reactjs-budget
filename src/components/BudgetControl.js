@@ -5,9 +5,9 @@ import { reviewBudget } from '../helpers'
 const BudgetControl = ({ budget, remaining }) => {
   return (
     <Fragment>
-      <div className="alert alert-primary">Budget: ${budget}</div>
+      <div className="alert alert-primary">Presupuesto: ${budget}</div>
       <div className={reviewBudget(budget, remaining)}>
-        Remaining: ${remaining}
+        Restante: ${remaining}
       </div>
     </Fragment>
   )

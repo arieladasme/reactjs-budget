@@ -29,19 +29,21 @@ const Question = ({ saveBudget, saveRemaining, updateQuestion }) => {
 
   return (
     <Fragment>
-      <h2>Enter your budget</h2>
-      {error ? <Error message="Te budget is wrong" /> : null}
+      <h2>{/* Enter your budget */}Ingresa tu presupuesto</h2>
+      {error ? <Error message="Presupuesto mal ingresado" /> : null}
       <form onSubmit={addBudget}>
         <input
           type="number"
           className="u-full-width"
-          placeholder="Budget"
+          /* placeholder="Budget" */
+          placeholder="Ingresa presupuesto"
           onChange={defineBudget}
         />
         <input
           type="submit"
-          className="u-full-width button-primary"
-          value="Define budget"
+          className="u-full-width btn from-top "
+          /* value="Define budget" */
+          value="Ingresar"
         />
       </form>
     </Fragment>

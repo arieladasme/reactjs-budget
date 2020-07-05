@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import 'animate.css'
+//import './node_modules/animate.css/animate.min.css'
 import Question from './components/Question'
 import Form from './components/Form'
 import List from './components/List'
@@ -30,8 +32,11 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>Weekly Expense</h1>
-        <div className="contenido-principal contenido">
+        <h1 className="animate__animated animate__zoomInDown">
+          {/* Weekly Expense */}
+          Gasto Semanal
+        </h1>
+        <div className="contenido-principal contenido animate__animated animate__zoomIn">
           {showQuestion ? (
             <Question
               saveBudget={saveBudget}
@@ -39,7 +44,7 @@ function App() {
               updateQuestion={updateQuestion}
             />
           ) : (
-            <div className="row">
+            <div className="row animate__animated animate__zoomIn">
               <div className="one-half column">
                 <Form
                   saveExpense={saveExpense}
